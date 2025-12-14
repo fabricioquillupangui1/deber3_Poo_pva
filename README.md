@@ -1,136 +1,141 @@
-📘 Programación Orientada a Objetos (POO)
-Conceptos Fundamentales: Clases, Objetos y los 4 Pilares
+<div align="center">
+🚀 Programación Orientada a Objetos (POO)
+📦 Clases · Objetos · Encapsulamiento · Abstracción · Herencia · Polimorfismo
 
-Este documento presenta una explicación clara y estructurada de la Programación Orientada a Objetos (POO), uno de los paradigmas más importantes en el desarrollo de software.
-Incluye fundamentos teóricos, ejemplos prácticos en Kotlin (Android Studio) y ejercicios aplicados con Jetpack Compose, integrando lógica y diseño de interfaces gráficas.
+💡 Fundamentos teóricos + ejemplos prácticos en Kotlin + ejercicios con Jetpack Compose
 
-🧠 Proceso de Pensamiento para Modelar con Objetos
+</div>
+🧭 ¿De qué trata este repositorio?
 
-La Programación Orientada a Objetos nos permite construir software modelando el mundo real.
-Este proceso lógico facilita transformar un problema en una solución estructurada, modular y reutilizable.
+Este repositorio explica de forma clara, ordenada y práctica la Programación Orientada a Objetos (POO), uno de los paradigmas más importantes del desarrollo de software.
 
-🔑 Pasos Clave para el Modelado
+📌 Aquí encontrarás:
 
-Paso 1 – Identificación de Entidades
-Determinar las “cosas” importantes del problema (Clases).
-Ejemplo: Identificar la clase Estudiante.
+📖 Conceptos fundamentales de POO
 
-Paso 2 – Definición de Atributos
-Describir las características que definen a la entidad.
-Ejemplo: nombre, edad, carrera.
+🧠 Proceso lógico para modelar problemas reales
 
-Paso 3 – Definición de Comportamiento
-Establecer las acciones que puede realizar la entidad (Métodos).
-Ejemplo: inscribirse(), presentarExamen().
+🧱 Clases y objetos explicados de forma sencilla
 
-Paso 4 – Establecimiento de Relaciones
-Definir cómo interactúan las clases entre sí (Herencia, Composición, Asociación).
-Ejemplo: Estudiante se relaciona con Curso.
+🛡️ Los 4 pilares de la POO
+
+💻 Ejemplos en Kotlin (Android Studio)
+
+🎨 Ejercicios prácticos con Jetpack Compose
+
+🧠 Pensamiento Orientado a Objetos
+
+La POO permite construir software modelando el mundo real.
+En lugar de pensar solo en instrucciones, pensamos en entidades, características y comportamientos.
+
+🔄 Proceso para Modelar un Problema
+
+🔹 1. Identificación de Entidades
+Detectar las “cosas” importantes del problema (Clases).
+
+Ejemplo: Estudiante
+
+🔹 2. Definición de Atributos
+Describir las características de la entidad.
+
+Ejemplo: nombre, edad, carrera
+
+🔹 3. Definición de Comportamientos
+Determinar qué acciones puede realizar.
+
+Ejemplo: inscribirse(), presentarExamen()
+
+🔹 4. Establecimiento de Relaciones
+Definir cómo interactúan las clases entre sí.
+
+Ejemplo: Estudiante se relaciona con Curso
 
 🧱 Clases y Objetos
-📐 Clase: El Plano
+📐 Clase → El Plano
 
-Una Clase es una definición abstracta que actúa como una plantilla o molde.
-Define la estructura (atributos) y el comportamiento (métodos) de los objetos.
-No ocupa memoria hasta que se crea una instancia.
+Una clase es una plantilla que define:
 
-🧩 Objeto: La Instancia
+🧩 Atributos (datos)
 
-Un Objeto es una instancia concreta de una clase.
-Representa una entidad real en memoria con valores específicos para sus atributos.
+⚙️ Métodos (acciones)
 
-Analogía:
-La clase MoldeDeGalletas es la plantilla, mientras que miGalleta es la galleta real creada a partir de ese molde.
+📌 No ocupa memoria hasta que se crea un objeto.
 
-🛡️ Los 4 Pilares Fundamentales de la POO
+🧩 Objeto → La Realidad
 
-Estos principios son la base para el diseño de software robusto, flexible y mantenible.
+Un objeto es una instancia concreta de una clase.
+Tiene valores reales y existe en memoria.
 
-1️⃣ Encapsulamiento
+🧁 Ejemplo sencillo
+La clase MoldeDeGalletas es el molde
+El objeto miGalleta es la galleta real 🍪
 
-Agrupa datos y métodos en una sola unidad y restringe el acceso directo a los datos internos.
-La interacción se realiza únicamente a través de métodos públicos, protegiendo la información.
+🛡️ Los 4 Pilares de la POO
+🔒 1. Encapsulamiento
 
-Ejemplo conceptual:
-Datos seguros dentro de una “caja fuerte”.
+Protege los datos internos y permite el acceso solo mediante métodos controlados.
 
-2️⃣ Abstracción
+📦 Como una caja fuerte que protege la información.
 
-Muestra solo la funcionalidad esencial al usuario y oculta los detalles complejos de implementación.
-Permite interactuar con los objetos a un alto nivel.
+🎭 2. Abstracción
 
-Ejemplo conceptual:
-Usar un televisor sin conocer cómo funciona internamente.
+Muestra solo lo esencial y oculta la complejidad interna.
 
-3️⃣ Herencia
+📺 Usas un televisor sin saber cómo funciona por dentro.
 
-Permite que una clase hija reutilice, extienda o modifique atributos y métodos de una clase padre.
-Establece una relación “Es un” y promueve la reutilización del código.
+🌳 3. Herencia
 
-Ejemplo conceptual:
-Una clase hija hereda características de una clase padre.
+Una clase hija hereda atributos y métodos de una clase padre.
 
-4️⃣ Polimorfismo
+👨‍👧 La clase hija reutiliza y extiende funcionalidades.
 
-Permite que un mismo método tenga diferentes comportamientos según la clase que lo implemente.
-Significa “muchas formas” y brinda flexibilidad al diseño del software.
+🔁 4. Polimorfismo
 
-Ejemplo conceptual:
-El método dibujar() se comporta de manera distinta según la figura.
+Un mismo método puede comportarse de distintas formas según el objeto.
 
-🎯 Ejemplos Prácticos de POO (Kotlin – Android Studio)
-📚 Ejemplo 1: Sistema de Gestión de Biblioteca
+🎨 El método dibujar() se comporta diferente para cada figura.
 
-Herencia, Encapsulamiento y Abstracción
+🎯 Ejemplos Prácticos (Kotlin – Android Studio)
+📚 Ejemplo 1: Sistema de Biblioteca
 
-Se modela un sistema de biblioteca utilizando una clase base abstracta y clases hijas que heredan su comportamiento común.
-El estado de disponibilidad se encuentra protegido mediante encapsulamiento.
+Encapsulamiento · Herencia · Abstracción
 
-Incluye:
+✔️ Uso de clase abstracta
+✔️ Atributos privados
+✔️ Métodos públicos
+✔️ Control del estado interno
 
-Clase abstracta base
+📌 Ideal para entender cómo proteger datos y reutilizar código.
 
-Atributos privados
+📐 Ejemplo 2: Figuras Geométricas
 
-Métodos públicos de acceso
+Abstracción · Polimorfismo
 
-Herencia y sobrescritura de métodos
+✔️ Interfaz común
+✔️ Implementaciones distintas
+✔️ Cálculo dinámico de áreas
+✔️ Uso de listas polimórficas
 
-📐 Ejemplo 2: Cálculo de Áreas de Figuras Geométricas
+📌 Demuestra cómo un mismo método puede tener múltiples comportamientos.
 
-Abstracción y Polimorfismo
-
-Se implementa una interfaz que define un contrato común para todas las figuras geométricas.
-Cada figura calcula su área de manera diferente, demostrando el polimorfismo.
-
-Incluye:
-
-Interfaz común
-
-Implementaciones específicas
-
-Uso de listas de objetos
-
-Ejecución polimórfica de métodos
-
-🚀 Ejercicios Prácticos con Programación Orientada a Objetos
+🚀 Ejercicios Prácticos con POO
 🏦 Ejercicio 1: Sistema Bancario
 
-Abstracción, Encapsulamiento y Polimorfismo
+Abstracción · Encapsulamiento · Polimorfismo
 
-Se desarrolla un sistema bancario que permite:
+💼 Funcionalidades:
 
-Crear clientes
+Gestión de clientes
 
-Gestionar cuentas corrientes y de ahorros
+Cuentas corrientes y de ahorros
 
-Realizar depósitos y retiros
+Depósitos y retiros
 
-Cambiar dinámicamente el tipo de cuenta
+Cambio dinámico de tipo de cuenta
 
-Visualizar resultados mediante una interfaz gráfica
+Interfaz moderna con Jetpack Compose
 
-Tecnologías utilizadas:
+🛠️ Tecnologías:
 
 Kotlin
 
@@ -138,38 +143,40 @@ Android Studio
 
 Jetpack Compose
 
-Arquitectura orientada a objetos
-
 💼 Ejercicio 2: Gestión de Empleados
 
-Herencia y Polimorfismo en el cálculo del salario
+Herencia · Polimorfismo
 
-Se implementa un sistema para gestionar empleados con diferentes tipos de contratación:
+👷 Tipos de empleados:
 
 Empleado fijo
 
 Empleado por hora
 
-Características principales:
+📊 Características:
 
-Uso de clase abstracta base
+Cálculo automático de salarios
 
-Implementación de herencia
+Uso de clases abstractas
 
-Cálculo polimórfico del salario
+Interfaz dinámica
 
-Interfaz gráfica dinámica con Jetpack Compose
+Aplicación real de POO
 
-📌 Conclusión
+🏁 Conclusión
 
 La Programación Orientada a Objetos permite:
 
-Modelar problemas reales de forma natural
+✅ Modelar problemas reales
+✅ Reutilizar código
+✅ Crear sistemas escalables
+✅ Mantener proyectos organizados
 
-Reutilizar código eficientemente
+Este repositorio combina teoría + práctica + diseño, ideal para estudiantes y desarrolladores que desean fortalecer su lógica de programación orientada a objetos.
 
-Construir sistemas escalables y mantenibles
+<div align="center">
+⭐ Si este contenido te ayudó, ¡no olvides dejar tu estrella!
 
-Este material combina teoría, ejemplos prácticos y ejercicios reales, facilitando el aprendizaje progresivo y sólido de la POO aplicada al desarrollo Android.
+📎 Ejercicios prácticos y README disponibles dentro del repositorio
 
-📎 Ejercicios prácticos y README
+</div>
