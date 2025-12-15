@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deber 3: Programación Orientada a Objetos (POO)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Generales */
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        
+        /* Cabecera */
+        header { 
+            background: #007bff; /* Azul primario */
+            color: white; 
+            padding: 40px 20px; 
+            text-align: center; 
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 { 
+            margin: 0; 
+            font-weight: 700;
+            font-size: 2.5em;
+        }
+        header p { 
+            font-weight: 300;
+            font-size: 1.1em;
+        }
+
+        /* Títulos */
+        h2 { 
+            color: #007bff; 
+            border-bottom: 2px solid #007bff; 
+            padding-bottom: 5px; 
+            margin-top: 40px; 
+            font-weight: 700;
+        }
+        h3 { 
+            color: #333; 
+            margin-top: 25px; 
+            font-weight: 500;
+        }
+        .proyecto-titulo {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-left: 5px solid #007bff;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #007bff;
+        }
+
+        /* Tabla de Modelado */
+        #modelado table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        #modelado th, #modelado td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        #modelado th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 700;
+        }
+        #modelado tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+
+        /* Pilares POO (Grid Layout) */
+        #pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .pilar-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid; 
+            transition: transform 0.2s;
+            text-align: center;
+        }
+        .pilar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+        .pilar-card img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .pilar-card.encapsulamiento { border-top-color: #28a745; }
+        .pilar-card.abstraccion { border-top-color: #ffc107; }
+        .pilar-card.herencia { border-top-color: #dc3545; }
+        .pilar-card.polimorfismo { border-top-color: #17a2b8; }
+        .pilar-card strong {
+            display: block;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        /* Código y Resaltado de Sintaxis (Simulado) */
+        pre { 
+            background: #272822; /* Fondo oscuro para código */
+            color: #f8f8f2; 
+            padding: 20px; 
+            border-radius: 6px; 
+            overflow-x: auto; 
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+        }
+        /* Definiciones de colores para simular sintaxis de Kotlin/Java */
+        .keyword { color: #f92672; } 
+        .type { color: #a6e22e; } 
+        .string { color: #e6db74; } 
+        .comment { color: #75715e; } 
+        .function { color: #66d9ef; } 
+        .property { color: #fd971f; } 
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programación Orientada a Objetos (POO)</h1>
+        <p>Conceptos Fundamentales: Clases, Objetos y los 4 Pilares</p>
+    </header>
+
+    <div class="container">
+        
+        <section id="modelado">
+            <h2>🧠 Proceso de Pensamiento para Modelar con Objetos</h2>
+            <p>La POO nos permite construir software modelando el mundo real. Este proceso lógico nos guía para transformar un problema en una solución estructurada y modular.</p>
+            
+            <h3>Pasos Clave para el Modelado</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paso</th>
+                        <th>Concepto</th>
+                        <th>Ejemplo (Entidad: Estudiante)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Identificación de Entidades</td>
+                        <td>Determinar las "cosas" (Clases) importantes en el problema.</td>
+                        <td>Identificar la clase `Estudiante`.</td>
+                    </tr>
+                    <tr>
+                        <td>2. Definición de Atributos</td>
+                        <td>Describir las características (datos) que definen a la entidad.</td>
+                        <td>Atributos: `nombre`, `edad`, `carrera`.</td>
+                    </tr>
+                    <tr>
+                        <td>3. Definición de Comportamiento</td>
+                        <td>Establecer las acciones (Métodos) que puede realizar la entidad.</td>
+                        <td>Métodos: `inscribirse()`, `presentarExamen()`.</td>
+                    </tr>
+                    <tr>
+                        <td>4. Establecimiento de Relaciones</td>
+                        <td>Definir cómo interactúan las clases (Herencia, Composición, etc.).</td>
+                        <td>Relación: `Estudiante` se relaciona con `Curso`.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="clases-objetos">
+            <h2>🧱 Clases y Objetos</h2>
+            
+            <h3>Clase: El Plano</h3>
+            <p>Una Clase es la definición abstracta. Actúa como una plantilla o molde que especifica la estructura (atributos) y el comportamiento (métodos) que tendrán los objetos creados a partir de ella. No consume memoria hasta que se instancia.</p>
+            
+            <h3>Objeto: La Instancia</h3>
+            <p>Un Objeto es una instancia concreta de una clase. Es una entidad física en la memoria que ha sido construida siguiendo las especificaciones de la clase, y tiene valores específicos para sus atributos.</p>
+            
+            <p style="font-style: italic;">Analogía: La clase `MoldeDeGalletas` (la plantilla) se usa para crear el objeto `miGalleta` (la galleta horneada y específica).</p>
+        </section>
+
+        <hr>
+
+        <section id="pilares">
+            <h2>🛡️ Los 4 Pilares Fundamentales de la POO</h2>
+            <p>Estos principios son la base teórica para el diseño de software robusto y mantenible.</p>
+            
+            <div id="pilares-grid">
+                
+                <div class="pilar-card encapsulamiento">
+                    <strong>1. Encapsulamiento</strong>
+                    <p>Agrupa datos y métodos en una unidad y restringe el acceso directo a los datos internos, permitiendo la interacción solo a través de métodos públicos. Protege los datos.</p>
+                    <p class="comment">(Datos seguros dentro de la "caja fuerte")</p>
+                    
+                </div>
+                
+                <div class="pilar-card abstraccion">
+                    <strong>2. Abstracción</strong>
+                    <p>Muestra solo la funcionalidad esencial al usuario y oculta los detalles de implementación complejos. Permite interactuar con objetos a un alto nivel. Simplifica el uso.</p>
+                    <p class="comment">(Usar un televisor sin saber cómo funciona)</p>
+                    
+                </div>
+                
+                <div class="pilar-card herencia">
+                    <strong>3. Herencia</strong>
+                    <p>Permite que una nueva clase (subclase) reutilice, extienda o modifique atributos y métodos de una clase ya existente (superclase). Establece una relación "Es Un". Promueve la reutilización.</p>
+                    <p class="comment">(Clase Padre pasa propiedades a Clase Hija)</p>
+                    
+                </div>
+                
+                <div class="pilar-card polimorfismo">
+                    <strong>4. Polimorfismo</strong>
+                    <p>Habilidad de un método para tener diferentes implementaciones dependiendo de la clase que lo ejecute. Significa "muchas formas". Permite la flexibilidad.</p>
+                    <p class="comment">(El mismo método 'dibujar()' se comporta diferente)</p>
+                    
+                </div>
+            </div>
+            
+        </section>
+
+        <hr>
+
+        <section id="ejercicios-practicos">
+            <h2>🎯 Ejemplos Prácticos de POO (Kotlin en Android Studio)</h2>
+
+            <div class="proyecto-titulo">
+                Ejemplo 1: Sistema de Gestión de Biblioteca (Herencia y Encapsulamiento)
+            </div>
+            <p>Modelamos ítems de la biblioteca, usando la clase base abstracta <code>ItemBiblioteca</code> para definir el comportamiento común y aplicando (Encapsulamiento) en el estado de disponibilidad.</p>
+            
+            <pre>
+<code>
+<span class="comment">// 1. Clase Base Abstracta (Abstracción)</span>
+<span class="keyword">abstract class</span> <span class="type">ItemBiblioteca</span>(<span class="keyword">val</span> <span class="property">titulo</span>: <span class="type">String</span>, <span class="keyword">val</span> <span class="property">autor</span>: <span class="type">String</span>) {
+    <span class="comment">// ENCAPSULAMIENTO: Atributo privado que guarda el estado real</span>
+    <span class="keyword">private var</span> <span class="property">_disponible</span>: <span class="type">Boolean</span> = <span class="keyword">true</span>
+
+    <span class="keyword">val</span> <span class="property">isDisponible</span>: <span class="type">Boolean</span>
+        <span class="keyword">get</span>() = <span class="property">_disponible</span> <span class="comment">// Getter público de solo lectura</span>
+
+    <span class="comment">// ABSTRACCIÓN: Métodos de interfaz para interactuar con el estado interno</span>
+    <span class="keyword">fun</span> <span class="function">prestar</span>() {
+        <span class="keyword">if</span> (<span class="property">_disponible</span>) {
+            <span class="property">_disponible</span> = <span class="keyword">false</span>
+            <span class="function">println</span>(<span class="string">"$titulo ha sido prestado."</span>)
+        } <span class="keyword">else</span> {
+            <span class="function">println</span>(<span class="string">"$titulo NO está disponible para préstamo."</span>)
+        }
+    }
+    
+    <span class="keyword">abstract fun</span> <span class="function">mostrarDetalles</span>()
+}
+
+<span class="comment">// 2. Clase Hija (Herencia)</span>
+<span class="keyword">class</span> <span class="type">Libro</span>(
+    <span class="property">titulo</span>: <span class="type">String</span>, 
+    <span class="property">autor</span>: <span class="type">String</span>, 
+    <span class="keyword">val</span> <span class="property">isbn</span>: <span class="type">String</span>
+) : <span class="type">ItemBiblioteca</span>(<span class="property">titulo</span>, <span class="property">autor</span>) { <span class="comment">// HERENCIA</span>
+    
+    <span class="keyword">override fun</span> <span class="function">mostrarDetalles</span>() {
+        <span class="function">println</span>(<span class="string">"Libro: $titulo, ISBN: $isbn"</span>)
+        <span class="function">println</span>(<span class="string">"Estado: "</span> + <span class="keyword">if</span> (<span class="property">isDisponible</span>) <span class="string">"Disponible"</span> <span class="keyword">else</span> <span class="string">"Prestado"</span>)
+    }
+}
+
+<span class="comment">// 3. Uso</span>
+<span class="keyword">fun</span> <span class="function">main</span>() {
+    <span class="keyword">val</span> <span class="property">libro1</span> = <span class="type">Libro</span>(<span class="string">"El Quijote"</span>, <span class="string">"Cervantes"</span>, <span class="string">"978-XXXX"</span>)
+    <span class="property">libro1</span>.<span class="function">mostrarDetalles</span>()
+    <span class="property">libro1</span>.<span class="function">prestar</span>() <span class="comment">// Modifica el estado interno (Encapsulamiento)</span>
+    <span class="property">libro1</span>.<span class="function">mostrarDetalles</span>()
+}
+</code>
+            </pre>
+
+
+            <div class="proyecto-titulo">
+                Ejemplo 2: Cálculo de Áreas de Figuras Geométricas (Polimorfismo y Abstracción)
+            </div>
+            <p>Implementamos la interfaz <code>Figura</code> (Abstracción) y forzamos a que cada clase hija implemente el método <code>calcularArea()</code> de manera diferente, demostrando el (Polimorfismo).</p>
+            
+            <pre>
+<code>
+<span class="comment">// 1. Interfaz (Abstracción: Contrato)</span>
+<span class="keyword">interface</span> <span class="type">Figura</span> {
+    <span class="comment">// POLIMORFISMO: Define el método que tendrá múltiples formas</span>
+    <span class="keyword">fun</span> <span class="function">calcularArea</span>(): <span class="type">Double</span>
+    <span class="keyword">fun</span> <span class="function">dibujar</span>()
+}
+
+<span class="comment">// 2. Clase Circulo (Herencia e implementación polimórfica)</span>
+<span class="keyword">class</span> <span class="type">Circulo</span>(<span class="keyword">val</span> <span class="property">radio</span>: <span class="type">Double</span>) : <span class="type">Figura</span> {
+    
+    <span class="comment">// POLIMORFISMO: Forma 1 de calcularArea()</span>
+    <span class="keyword">override fun</span> <span class="function">calcularArea</span>(): <span class="type">Double</span> {
+        <span class="keyword">return</span> <span class="type">Math</span>.<span class="property">PI</span> * <span class="property">radio</span> * <span class="property">radio</span> 
+    }
+    
+    <span class="keyword">override fun</span> <span class="function">dibujar</span>() {
+        <span class="function">println</span>(<span class="string">"Dibujando un Círculo."</span>)
+    }
+}
+
+<span class="comment">// 3. Clase Rectangulo (Herencia e implementación polimórfica)</span>
+<span class="keyword">class</span> <span class="type">Rectangulo</span>(<span class="keyword">val</span> <span class="property">ancho</span>: <span class="type">Double</span>, <span class="keyword">val</span> <span class="property">alto</span>: <span class="type">Double</span>) : <span class="type">Figura</span> {
+    
+    <span class="comment">// POLIMORFISMO: Forma 2 de calcularArea()</span>
+    <span class="keyword">override fun</span> <span class="function">calcularArea</span>(): <span class="type">Double</span> {
+        <span class="keyword">return</span> <span class="property">ancho</span> * <span class="property">alto</span>
+    }
+    
+    <span class="keyword">override fun</span> <span class="function">dibujar</span>() {
+        <span class="function">println</span>(<span class="string">"Dibujando un Rectángulo."</span>)
+    }
+}
+
+<span class="comment">// 4. Uso (Demostración de Polimorfismo)</span>
+<span class="keyword">fun</span> <span class="function">main</span>() {
+    <span class="keyword">val</span> <span class="property">figuras</span> = <span class="keyword">listOf</span>(<span class="type">Circulo</span>(<span class="type">5.0</span>), <span class="type">Rectangulo</span>(<span class="type">4.0</span>, <span class="type">6.0</span>))
+
+    <span class="keyword">for</span> (<span class="property">figura</span> <span class="keyword">in</span> <span class="property">figuras</span>) {
+        <span class="property">figura</span>.<span class="function">dibujar</span>() 
+        <span class="comment">// Llama a la implementación específica de cada objeto (Polimorfismo)</span>
+        <span class="function">println</span>(<span class="string">"Área: "</span> + <span class="property">figura</span>.<span class="function">calcularArea</span>()) 
+    }
+}
+</code>
+            </pre>
+        </section>
+
+    </div>
+    <div class="container">
+        <h1>🚀 EJERCICIOS PRÁCTICOS CON POO</h1>
+
+        <hr class="section-separator">
+
+        <h2>🏦 Ejercicio 1: Sistema Bancario (Abstracción y Polimorfismo)</h2>
+
+        <h3>1. Clase Cliente (<code>logica/Cliente.kt</code>)</h3>
+        <div class="file-header">logica/Cliente.kt</div>
+        <pre><code>
+package com.ejemplo.bancario.logica 
+
+class Cliente(val nombre: String, val id: String) {
+    fun obtenerInformacion(): String {
+        return "Cliente: $nombre (ID: $id)"
+    }
+}
+        </code></pre>
+
+        <h3>2. Clases Bancarias (<code>logica/Cuenta.kt</code>)</h3>
+        <div class="file-header">logica/Cuenta.kt</div>
+        <pre><code>
+package com.ejemplo.bancario.logica 
+
+// CLASE BASE: ABSTRACCIÓN y ENCAPSULAMIENTO
+abstract class CuentaBancaria(val titular: Cliente, protected var saldo: Double) {
+
+    fun obtenerSaldo(): Double = saldo
+    
+    fun depositar(cantidad: Double): String {
+        return if (cantidad > 0.0) {
+            saldo += cantidad
+            "Depósito exitoso. Nuevo saldo: $saldo"
+        } else {
+            "El depósito debe ser mayor a cero."
+        }
+    }
+
+    // POLIMORFISMO
+    abstract fun retirar(cantidad: Double): String
+}
+
+// CUENTA CORRIENTE
+class CuentaCorriente(titular: Cliente, saldoInicial: Double) : CuentaBancaria(titular, saldoInicial) {
+    
+    override fun retirar(cantidad: Double): String {
+        return if (cantidad <= saldo) {
+            saldo -= cantidad
+            "Retiro CC exitoso. Nuevo saldo: $saldo"
+        } else {
+            "ERROR: Fondos insuficientes en Cuenta Corriente."
+        }
+    }
+}
+
+// CUENTA AHORROS
+class CuentaAhorros(titular: Cliente, saldoInicial: Double, val comision: Double = 2.0) : CuentaBancaria(titular, saldoInicial) {
+    
+    override fun retirar(cantidad: Double): String {
+        val totalRetirar = cantidad + comision
+        return if (totalRetirar <= saldo) {
+            saldo -= totalRetirar
+            "Retiro CA de $cantidad (Comisión: $comision). Nuevo saldo: $saldo"
+        } else {
+            "ERROR: Fondos insuficientes para cubrir el retiro y la comisión ($totalRetirar)."
+        }
+    }
+}
+        </code></pre>
+
+        <h3>3. Interfaz de Usuario (<code>MainActivity.kt</code>)</h3>
+        <div class="file-header">MainActivity.kt (Ejercicio 1)</div>
+        <pre><code>
+package com.ejemplo.bancario
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.ejemplo.bancario.logica.Cliente
+import com.ejemplo.bancario.logica.CuentaBancaria
+import com.ejemplo.bancario.logica.CuentaCorriente
+import com.ejemplo.bancario.logica.CuentaAhorros
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MaterialTheme {
+                val clientePrincipal = remember { Cliente("Andrés Castro", "1040") }
+                var cuentaActual by remember {
+                    mutableStateOf<CuentaBancaria>(CuentaCorriente(clientePrincipal, 500.0))
+                }
+
+                SistemaBancarioApp(
+                    cliente = clientePrincipal,
+                    cuenta = cuentaActual,
+                    onCuentaChange = { nuevaCuenta -> cuentaActual = nuevaCuenta }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun SistemaBancarioApp(
+    cliente: Cliente,
+    cuenta: CuentaBancaria,
+    onCuentaChange: (CuentaBancaria) -> Unit
+) {
+    var cantidadInput by remember { mutableStateOf("") }
+    var mostrarDialogo by remember { mutableStateOf<String?>(null) }
+
+    Column(
+        modifier = Modifier.fillMaxSize().padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("SISTEMA BANCARIO POO (Compose)", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(bottom = 20.dp))
+        
+        Text(cliente.obtenerInformacion(), fontSize = 18.sp, modifier = Modifier.padding(bottom = 4.dp))
+        val tipoCuenta = if (cuenta is CuentaCorriente) "CORRIENTE" else "AHORROS (Comisión $2.0)"
+        Text("Cuenta Actual: $tipoCuenta", fontSize = 18.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(bottom = 8.dp))
+        
+        Text(
+            "SALDO: $${"%.2f".format(cuenta.obtenerSaldo())}",
+            fontSize = 28.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(bottom = 32.dp)
+        )
+
+        OutlinedTextField(
+            value = cantidadInput,
+            onValueChange = { newValue -> cantidadInput = newValue.filter { it.isDigit() || it == '.' } },
+            label = { Text("Cantidad a operar") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberDecimal),
+            modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
+        )
+
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Button(
+                onClick = {
+                    val cantidad = cantidadInput.toDoubleOrNull()
+                    if (cantidad != null && cantidad > 0) {
+                        val resultado = cuenta.depositar(cantidad)
+                        onCuentaChange(cuenta)
+                        mostrarDialogo = resultado
+                    } else { mostrarDialogo = "Error: Ingrese una cantidad válida." }
+                    cantidadInput = ""
+                },
+                modifier = Modifier.weight(1f).padding(end = 8.dp)
+            ) { Text("Depositar") }
+
+            Button(
+                onClick = {
+                    val cantidad = cantidadInput.toDoubleOrNull()
+                    if (cantidad != null && cantidad > 0) {
+                        val resultado = cuenta.retirar(cantidad)
+                        onCuentaChange(cuenta)
+                        mostrarDialogo = resultado
+                    } else { mostrarDialogo = "Error: Ingrese una cantidad válida." }
+                    cantidadInput = ""
+                },
+                modifier = Modifier.weight(1f).padding(start = 8.dp)
+            ) { Text("Retirar") }
+        }
+        
+        Spacer(modifier = Modifier.height(24.dp))
+        
+        Button(
+            onClick = {
+                val nuevaCuenta = if (cuenta is CuentaCorriente) {
+                    CuentaAhorros(cliente, cuenta.obtenerSaldo())
+                } else {
+                    CuentaCorriente(cliente, cuenta.obtenerSaldo())
+                }
+                onCuentaChange(nuevaCuenta)
+                mostrarDialogo = "Tipo de Cuenta cambiado a: ${if (nuevaCuenta is CuentaAhorros) "Ahorros" else "Corriente"}"
+            },
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary)
+        ) {
+            Text("Cambiar Tipo de Cuenta")
+        }
+
+        mostrarDialogo?.let { mensaje ->
+            AlertDialog(
+                onDismissRequest = { mostrarDialogo = null },
+                title = { Text("Resultado Operación") },
+                text = { Text(mensaje) },
+                confirmButton = {
+                    Button(onClick = { mostrarDialogo = null }) { Text("OK") }
+                }
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewSistemaBancario() {
+    val previewCliente = Cliente("Demo Preview", "9999")
+    val previewCuenta = CuentaCorriente(previewCliente, 1000.0)
+    
+    MaterialTheme {
+        SistemaBancarioApp(
+            cliente = previewCliente,
+            cuenta = previewCuenta,
+            onCuentaChange = {} 
+        )
+    }
+}
+        </code></pre>
+
+        <hr class="section-separator">
+
+        <h2>💼 Ejercicio 2: Gestión de Empleados (Herencia y Polimorfismo de Cálculo)</h2>
+
+        <h3>1. Clases de Empleados (<code>logica/Empleado.kt</code>)</h3>
+        <div class="file-header">logica/Empleado.kt</div>
+        <pre><code>
+package com.ejemplo.bancario.logica 
+
+// CLASE BASE: ABSTRACCIÓN y HERENCIA
+abstract class Empleado(val nombre: String, val id: Int) {
+    
+    fun mostrarInfo(): String {
+        return "Empleado: $nombre (ID: $id)"
+    }
+
+    // POLIMORFISMO
+    abstract fun calcularSalario(): Double
+}
+
+// EMPLEADO FIJO
+class EmpleadoFijo(nombre: String, id: Int, val salarioMensual: Double) : Empleado(nombre, id) {
+    
+    override fun calcularSalario(): Double {
+        return salarioMensual
+    }
+}
+
+// EMPLEADO POR HORA
+class EmpleadoPorHora(nombre: String, id: Int, val tarifaHora: Double, val horasTrabajadas: Double) : Empleado(nombre, id) {
+    
+    override fun calcularSalario(): Double {
+        return tarifaHora * horasTrabajadas
+    }
+}
+        </code></pre>
+
+        <h3>2. Interfaz de Usuario (<code>MainActivity.kt</code>) - Ejercicio 2</h3>
+        <div class="file-header">MainActivity.kt (Ejercicio 2)</div>
+        <pre><code>
+package com.ejemplo.bancario
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.ejemplo.bancario.logica.Empleado
+import com.ejemplo.bancario.logica.EmpleadoFijo
+import com.ejemplo.bancario.logica.EmpleadoPorHora
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MaterialTheme { 
+                GestionEmpleadosApp()
+            }
+        }
+    }
+}
+
+enum class TipoEmpleado { FIJO, POR_HORA }
+
+@Composable
+fun GestionEmpleadosApp() {
+    
+    var tipoEmpleado by remember { mutableStateOf(TipoEmpleado.FIJO) }
+    var nombreInput by remember { mutableStateOf("") }
+    var valor1Input by remember { mutableStateOf("") }
+    var valor2Input by remember { mutableStateOf("") }
+    var resultadoSalario by remember { mutableStateOf<String?>(null) }
+
+    Column(
+        modifier = Modifier.fillMaxSize().padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        
+        Text("GESTOR DE EMPLEADOS POO", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(bottom = 20.dp))
+        
+        // Selector de Tipo de Empleado
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            FilterChip(
+                selected = tipoEmpleado == TipoEmpleado.FIJO,
+                onClick = { tipoEmpleado = TipoEmpleado.FIJO },
+                label = { Text("Empleado Fijo") },
+                modifier = Modifier.padding(end = 8.dp)
+            )
+            FilterChip(
+                selected = tipoEmpleado == TipoEmpleado.POR_HORA,
+                onClick = { tipoEmpleado = TipoEmpleado.POR_HORA },
+                label = { Text("Empleado por Hora") }
+            )
+        }
+        
+        OutlinedTextField(
+            value = nombreInput,
+            onValueChange = { nombreInput = it },
+            label = { Text("Nombre del Empleado") },
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+        )
+        
+        // Campos Dinámicos
+        if (tipoEmpleado == TipoEmpleado.FIJO) {
+            OutlinedTextField(
+                value = valor1Input,
+                onValueChange = { valor1Input = it.filter { c -> c.isDigit() || c == '.' } },
+                label = { Text("Salario Mensual Fijo") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberDecimal),
+                modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
+            )
+        } else {
+            OutlinedTextField(
+                value = valor1Input,
+                onValueChange = { valor1Input = it.filter { c -> c.isDigit() || c == '.' } },
+                label = { Text("Tarifa por Hora") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberDecimal),
+                modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+            )
+            OutlinedTextField(
+                value = valor2Input,
+                onValueChange = { valor2Input = it.filter { c -> c.isDigit() || c == '.' } },
+                label = { Text("Horas Trabajadas") },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberDecimal),
+                modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
+            )
+        }
+        
+        // Botón de Cálculo
+        Button(
+            onClick = {
+                val nombre = nombreInput.takeIf { it.isNotBlank() }
+                val valor1 = valor1Input.toDoubleOrNull()
+                
+                if (nombre == null || valor1 == null) {
+                    resultadoSalario = "ERROR: Ingrese un nombre y un valor válido."
+                    return@Button
+                }
+                
+                val empleado: Empleado? 
+                val id = (1000..9999).random()
+
+                if (tipoEmpleado == TipoEmpleado.FIJO) {
+                    empleado = EmpleadoFijo(nombre, id, valor1)
+                } else {
+                    val horas = valor2Input.toDoubleOrNull() ?: 0.0
+                    empleado = EmpleadoPorHora(nombre, id, valor1, horas)
+                }
+                
+                // POLIMORFISMO
+                val salarioCalculado = empleado.calcularSalario() 
+                
+                resultadoSalario = "${empleado.mostrarInfo()}\n" +
+                                   "Salario Neto Calculado: $${"%.2f".format(salarioCalculado)}"
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("CALCULAR SALARIO")
+        }
+        
+        resultadoSalario?.let { resultado ->
+            Card(
+                modifier = Modifier.fillMaxWidth().padding(top = 20.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Text(
+                    text = resultado,
+                    modifier = Modifier.padding(16.dp),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewGestionEmpleadosApp() {
+    MaterialTheme {
+        GestionEmpleadosApp()
+    }
+}
+        </code></pre>
+    </div>
+    <hr style="border-top: 2px dashed #007bff; margin: 40px 0;">
+            <h1>Ejercicios prácticos y Readme (Dar click en los enlaces)</h1>
+<a href="https://drive.google.com/file/d/1VHHiRueso4xghHzp52tkZzH6buXzMik8/view?usp=sharing">Video de los 2 ejercicios prácticos subiendo en Google Drive</a><br>
+<a href="https://github.com/fabricioquillupangui1/deber3_Poo_pva/blob/main/README.md">Enlace de github a Readme</a>
+</body>
+</body>
+</html>
